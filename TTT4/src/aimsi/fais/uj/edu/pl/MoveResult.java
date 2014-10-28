@@ -12,4 +12,61 @@ package aimsi.fais.uj.edu.pl;
  */
 public enum MoveResult {
     
+    INVALID_COORDINATES {
+                @Override
+                public String toString() {
+                    return "???";
+
+                }
+            },
+    INVALID_MOVE {
+                @Override
+                public String toString() {
+                    return "???";
+
+                }
+            },
+    INVALID_PLAYER {
+                @Override
+                public String toString() {
+                    return "???";
+
+                }
+            },
+    INVALID_SIGN {
+                @Override
+                public String toString() {
+                    return "???";
+
+                }
+            },
+    VICTORY_X {
+                @Override
+                public String toString() {
+                    return "???";
+
+                }
+            },
+    VICTORY_O {
+                @Override
+                public String toString() {
+                    return "???";
+
+                }
+            },
+    DRAW {
+                @Override
+                public String toString() {
+                    return "???";
+
+                }
+            },
+    SUCCESS {
+                @Override
+                public String toString() {
+                    return "???";
+
+                }
+            };
+    
 }

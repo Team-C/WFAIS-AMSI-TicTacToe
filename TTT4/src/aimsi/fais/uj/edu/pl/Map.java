@@ -12,4 +12,6 @@ package aimsi.fais.uj.edu.pl;
  */
 public class Map {
     
+    private SignType[][]][];
+    
 }
