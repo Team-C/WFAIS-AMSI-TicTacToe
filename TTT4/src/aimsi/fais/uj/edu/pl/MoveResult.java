@@ -11,8 +11,7 @@ package aimsi.fais.uj.edu.pl;
  */
 public enum MoveResult {
 
-    INVALID_COORDINATES, INVALID_MOVE,
-    INVALID_PLAYER, INVALID_SIGN,
+    INVALID_COORDINATES, INVALID_MOVE, INVALID_SIGN,
     VICTORY_X, VICTORY_O,
     DRAW, SUCCESS;
 
@@ -22,8 +21,6 @@ public enum MoveResult {
                 return "Invalid Coordinates";
             case INVALID_MOVE:
                 return "Invalid Move";
-            case INVALID_PLAYER:
-                return "Invalid Player";
             case INVALID_SIGN:
                 return "Invalid Sign";
             case VICTORY_X:

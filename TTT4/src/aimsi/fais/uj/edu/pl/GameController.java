@@ -12,11 +12,23 @@ package aimsi.fais.uj.edu.pl;
  */
 public class GameController {
 
-    /**
-     * @param args the command line arguments
-     */
+    private Map map;
+    private Player p1;
+    private Player p2;
+    
     public static void main(String[] args) {
         // TODO code application logic here
+    }
+    
+    public MoveResult addSign(int x, int y, int z, SignType sign) {
+        return map.addSign(x, y, z, sign);
+    }
+    public void restartGame() {
+        //TODO
+        map.restart();
+    }
+    public void switchPlayers() {
+        //TODO
     }
     
 }

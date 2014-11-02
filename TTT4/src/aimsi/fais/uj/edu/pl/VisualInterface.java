@@ -12,4 +12,8 @@ package aimsi.fais.uj.edu.pl;
  */
 public class VisualInterface {
     
+    public void display(){
+        //TODO
+    }
+    
 }
