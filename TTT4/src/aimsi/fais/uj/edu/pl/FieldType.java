@@ -11,7 +11,7 @@ import java.awt.Color;
  *
  * @author student
  */
-public enum SignType {
+public enum FieldType {
 
     NONE, O, X;
 
@@ -26,7 +26,7 @@ public enum SignType {
         }
     }
 
-    public SignType getOpposite() {
+    public FieldType getOpposite() {
         switch (this) {
             case X:
                 return O;
@@ -37,14 +37,14 @@ public enum SignType {
         }
     }
 
-    public Color getColor() {
+    public Color getBackgroundColor() {
         switch (this) {
             case X:
                 return Color.WHITE;
             case O:
                 return Color.WHITE;
             default:
-                return Color.LIGHT_GRAY;
+                return Color.WHITE;
         }
     }
 

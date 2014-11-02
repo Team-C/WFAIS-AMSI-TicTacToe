@@ -20,7 +20,7 @@ public class GameController {
         // TODO code application logic here
     }
     
-    public MoveResult addSign(int x, int y, int z, SignType sign) {
+    public MoveResult addSign(int x, int y, int z, FieldType sign) {
         return map.addSign(x, y, z, sign);
     }
     public void restartGame() {
