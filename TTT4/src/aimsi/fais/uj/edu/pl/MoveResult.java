@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package aimsi.fais.uj.edu.pl;
 
 /**
@@ -11,62 +10,33 @@ package aimsi.fais.uj.edu.pl;
  * @author student
  */
 public enum MoveResult {
-    
-    INVALID_COORDINATES {
-                @Override
-                public String toString() {
-                    return "???";
 
-                }
-            },
-    INVALID_MOVE {
-                @Override
-                public String toString() {
-                    return "???";
+    INVALID_COORDINATES, INVALID_MOVE,
+    INVALID_PLAYER, INVALID_SIGN,
+    VICTORY_X, VICTORY_O,
+    DRAW, SUCCESS;
 
-                }
-            },
-    INVALID_PLAYER {
-                @Override
-                public String toString() {
-                    return "???";
+    public String getText() {
+        switch (this) {
+            case INVALID_COORDINATES:
+                return "Invalid Coordinates";
+            case INVALID_MOVE:
+                return "Invalid Move";
+            case INVALID_PLAYER:
+                return "Invalid Player";
+            case INVALID_SIGN:
+                return "Invalid Sign";
+            case VICTORY_X:
+                return "X is Victorious";
+            case VICTORY_O:
+                return "O is Victorious";
+            case DRAW:
+                return "Draw";
+            case SUCCESS:
+                return "Sign Placed";
+            default:
+                return " ";
+        }
+    }
 
-                }
-            },
-    INVALID_SIGN {
-                @Override
-                public String toString() {
-                    return "???";
-
-                }
-            },
-    VICTORY_X {
-                @Override
-                public String toString() {
-                    return "???";
-
-                }
-            },
-    VICTORY_O {
-                @Override
-                public String toString() {
-                    return "???";
-
-                }
-            },
-    DRAW {
-                @Override
-                public String toString() {
-                    return "???";
-
-                }
-            },
-    SUCCESS {
-                @Override
-                public String toString() {
-                    return "???";
-
-                }
-            };
-    
 }

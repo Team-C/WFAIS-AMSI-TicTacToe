@@ -5,31 +5,57 @@
  */
 package aimsi.fais.uj.edu.pl;
 
+import java.awt.Color;
+
 /**
  *
  * @author student
  */
 public enum SignType {
 
-    NONE {
-                @Override
-                public String toString() {
-                    return "Empty Sign";
+    NONE, O, X;
 
-                }
-            },
-    O {
-                @Override
-                public String toString() {
-                    return "Sign: O";
+    public String getText() {
+        switch (this) {
+            case X:
+                return "X";
+            case O:
+                return "O";
+            default:
+                return "Unknown Sign Type";
+        }
+    }
 
-                }
-            },
-    X {
-                @Override
-                public String toString() {
-                    return "Sign: X";
+    public SignType getOpposite() {
+        switch (this) {
+            case X:
+                return O;
+            case O:
+                return X;
+            default:
+                return NONE;
+        }
+    }
 
-                }
-            };
+    public Color getColor() {
+        switch (this) {
+            case X:
+                return Color.WHITE;
+            case O:
+                return Color.WHITE;
+            default:
+                return Color.LIGHT_GRAY;
+        }
+    }
+
+    public Color getTextColor() {
+        switch (this) {
+            case X:
+                return Color.DARK_GRAY;
+            case O:
+                return Color.DARK_GRAY;
+            default:
+                return Color.MAGENTA;
+        }
+    }
 }
