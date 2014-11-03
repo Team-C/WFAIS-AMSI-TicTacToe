@@ -109,6 +109,8 @@ public class GameController {
     
     public static void restartGame() {
         map.restart();
+        hasWon = FieldType.NONE;
+        isDraw = false;
         if (p1.getSign() == FieldType.X) {
             turn = FieldType.O;
         } else {
