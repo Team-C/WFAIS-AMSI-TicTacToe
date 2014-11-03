@@ -6,28 +6,34 @@
 
 package aimsi.fais.uj.edu.pl;
 
+import java.awt.EventQueue;
 /**
  *
  * @author student
  */
 public class GameController {
 
-    private Map map;
-    private Player p1;
-    private Player p2;
+    static protected Map map = new Map();
+    static protected Player p1;
+    static protected Player p2;
     
     public static void main(String[] args) {
-        // TODO code application logic here
+        EventQueue.invokeLater(new Runnable() {
+		@Override
+		public void run() {
+			new GameWindow();
+		}
+	});
     }
     
     public MoveResult addSign(int x, int y, int z, FieldType sign) {
         return map.addSign(x, y, z, sign);
     }
-    public void restartGame() {
+    public static void restartGame() {
         //TODO
         map.restart();
     }
-    public void switchPlayers() {
+    public static void switchPlayers() {
         //TODO
     }
     

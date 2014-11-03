@@ -11,7 +11,7 @@ package aimsi.fais.uj.edu.pl;
  */
 public class Map {
 
-    FieldType[] fields = new FieldType[64];
+    static FieldType[] fields = new FieldType[64];
 
     Map() {
         restart();
