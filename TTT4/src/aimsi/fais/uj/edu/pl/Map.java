@@ -11,15 +11,19 @@ package aimsi.fais.uj.edu.pl;
  */
 public class Map {
 
-    static FieldType[] fields = new FieldType[64];
+    static FieldType[][][] fields = new FieldType[4][4][4];
 
     Map() {
         restart();
     }
 
     public void restart() {
-        for (int i = 0; i < 64; ++i) {
-            fields[i] = FieldType.NONE;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                for (int k = 0; k < 4; k++) {
+                    fields[i][j][k] = FieldType.NONE;
+                }
+            }
         }
     }
 
@@ -29,7 +33,7 @@ public class Map {
             return FieldType.NONE;
         }
 
-        return fields[x + y * 4 + z * 16];
+        return fields[x][y][z];
     }
 
     public MoveResult addSign(int x, int y, int z, FieldType sign) {
@@ -39,7 +43,7 @@ public class Map {
         }
 
         // proba nadpisania pola
-        if (fields[x + y * 4 + z * 16] != FieldType.NONE) {
+        if (fields[x][y][z] != FieldType.NONE) {
             return MoveResult.INVALID_MOVE;
         }
 
@@ -49,7 +53,7 @@ public class Map {
         }
 
         // wykonanie ruchu
-        fields[x + y * 4 + z * 16] = sign;
+        fields[x][y][z] = sign;
         
         //VICTORY_X, VICTORY_O, DRAW,
         //TODO Check Victory
