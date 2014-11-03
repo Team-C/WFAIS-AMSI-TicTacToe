@@ -37,7 +37,7 @@ class GamePanel extends JPanel {
                     default:
                         g.setColor(new Color(0, 0, 0));
                 }
-                g.fillRect(i * 100, j * 100, 100, 100);
+                g.fillRect(i * 95, j * 90, 90, 85);
             }
         }
     }

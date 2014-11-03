@@ -131,7 +131,6 @@ public class Map {
         if( c2==4 || c3==4 || c4==4 )return true;
         else{ c2=0; c3=0; c4=0; }
         
-        
         return false;
     }
 

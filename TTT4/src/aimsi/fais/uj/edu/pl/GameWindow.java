@@ -21,28 +21,30 @@ public class GameWindow extends JFrame {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            int x = e.getX();
-            int y = e.getY();
+            
+            // window start 8 x 30 <- this fucks up so many things
+            int x = e.getX()-8;
+            int y = e.getY()-30;
             int z;
             System.out.println(x + " " + y);
-            if (x < 400) { //lewy panel
-                if (y < 400) { //lewy górny panel
-                    x = x / 100;
-                    y = y / 100;
+            if (x < 380) { //lewy panel
+                if (y < 360) { //lewy górny panel
+                    x = x / 95;
+                    y = y / 90;
                     z = 0;
                 } else { //lewy dolny panel
-                    x = x / 100;
-                    y = (y-400) / 100;
+                    x = x / 95;
+                    y = (y-360) / 90;
                     z = 2;
                 }
             } else { //prawy panel
-                if (y < 400) { //prawy górny panel
-                    x = (x-400) / 100;
-                    y = y / 100;
+                if (y < 360) { //prawy górny panel
+                    x = (x-380) / 95;
+                    y = y / 90;
                     z = 1;
                 } else { //prawy dolny panel
-                    x = (x-400) / 100;
-                    y = (y-400) / 100;
+                    x = (x-380) / 95;
+                    y = (y-392) / 90;
                     z = 3;
                 }
             }
