@@ -2,53 +2,20 @@ package aimsi.fais.uj.edu.pl;
 
 import java.awt.Color;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JComponent;
-import java.awt.Graphics;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 
+/**
+ *
+ * @author Bartosz Bereza
+ */
 public class GameWindow extends JFrame {
 
-    GamePanel Panel1;
-    GamePanel Panel2;
-    GamePanel Panel3;
-    GamePanel Panel4;
-
-    class GamePanel extends JPanel {
-
-        int z = 0;
-
-        GamePanel(int z) {
-            this.setSize(new Dimension(400, 400));
-            this.setBackground(new Color(0, 0, z * 50));
-            this.z = z - 1;
-        }
-
-        @Override
-        public void paintComponent(Graphics g) {
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
-                    switch (GameController.map.getSign(i, j, z)) {
-                        case NONE:
-                            g.setColor(new Color(0, 255, 255));
-                            break;
-                        case O:
-                            g.setColor(new Color(0, 0, 255));
-                            break;
-                        case X:
-                            g.setColor(new Color(0, 255, 0));
-                            break;
-                        default:
-                            g.setColor(new Color(0, 0, 0));
-                    }
-                    g.fillRect(i * 100, j * 100, 100, 100);
-                }
-            }
-        }
-    }
+    private GamePanel Panel1;
+    private GamePanel Panel2;
+    private GamePanel Panel3;
+    private GamePanel Panel4;
 
     class Listener implements MouseListener {
 
@@ -80,23 +47,18 @@ public class GameWindow extends JFrame {
                 }
             }
             
-            //if (CurrentPlayer == P1){
-            //    GameController.map.addSign(x, y, z, FieldType.O);
-            //} else {
-            //    GameController.map.addSign(x, y, z, FieldType.X);
-            //} TO WSTAWIC JAK SIE POJAWI SPRAWDZANIE CZYJA JEST TURA
+            GameController.attemptClaim(x, y, z);
+            GameController.checkProgress();
             
-            GameController.map.addSign(x, y, z, FieldType.O);
-            System.out.println(x + " " + y + " " + z);
-            //A TO WYPIEPRZYC
+            //---------DEBUG
+            System.out.println("Picked: ["+x+"]"+"["+y+"]"+"["+z+"]");
+            //---------
             
             
             Panel1.repaint();
             Panel2.repaint();
             Panel3.repaint();
             Panel4.repaint();
-            
-            GameController.switchPlayers();
         }
 
         @Override
@@ -116,20 +78,6 @@ public class GameWindow extends JFrame {
         }
     }
 
-    class Field extends JComponent {
-
-        int x, y;
-
-        Field(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        public void paint(Graphics g) {
-            g.setColor(Color.red);
-            g.fillRect(x * 50, y * 50, 50, 50);
-        }
-    }
 
     public GameWindow() {
 
@@ -137,10 +85,10 @@ public class GameWindow extends JFrame {
         this.setLayout(new GridLayout(2, 2));
         this.setBackground(new Color(0,0,0));
 
-        Panel1 = new GamePanel(1);
-        Panel2 = new GamePanel(2);
-        Panel3 = new GamePanel(3);
-        Panel4 = new GamePanel(4);
+        Panel1 = new GamePanel(1, this);
+        Panel2 = new GamePanel(2, this);
+        Panel3 = new GamePanel(3, this);
+        Panel4 = new GamePanel(4, this);
 
         this.add(Panel1);
         this.add(Panel2);
