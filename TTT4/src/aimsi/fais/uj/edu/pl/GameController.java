@@ -14,7 +14,7 @@ import javax.swing.JLabel;
  * @author Michał Szura
  */
 public class GameController {
-
+    
     private static JFrame outcome = new JFrame();
     static protected Map map = new Map();
     static protected Player p1;
@@ -22,10 +22,10 @@ public class GameController {
     protected static FieldType turn = FieldType.X;
     private static FieldType hasWon = FieldType.NONE;
     private static boolean isDraw = false;
-
+    
     public static void main(String[] args) {
-        p1 = new Player(FieldType.X);
-        p2 = new Player(FieldType.O);
+        p1 = new Player("Player 1", FieldType.X);
+        p2 = new Player("Player 2", FieldType.O);
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -33,7 +33,7 @@ public class GameController {
             }
         });
     }
-
+    
     public static void attemptClaim(int x, int y, int z) {
         MoveResult res = addSign(x, y, z, turn);
         switch (res) {
@@ -54,7 +54,7 @@ public class GameController {
                 System.out.println("Not supported yet: " + res.getText());
         }
     }
-
+    
     public static void checkProgress() {
         if (hasWon != FieldType.NONE) {
             sendWin(hasWon);
@@ -65,7 +65,7 @@ public class GameController {
             return;
         }
     }
-
+    
     private static void sendWin(FieldType winner) {
         outcome.setVisible(false);
         outcome.dispose();
@@ -86,7 +86,7 @@ public class GameController {
         outcome.setVisible(true);
         restartGame();
     }
-
+    
     private static void sendDraw() {
         outcome.setVisible(false);
         outcome.dispose();
@@ -102,17 +102,21 @@ public class GameController {
         outcome.setVisible(true);
         restartGame();
     }
-
+    
     public static MoveResult addSign(int x, int y, int z, FieldType sign) {
         return map.addSign(x, y, z, sign);
     }
-
+    
     public static void restartGame() {
         map.restart();
-        turn = FieldType.X;
-        //TODO
+        if (p1.getSign() == FieldType.X) {
+            turn = FieldType.O;
+        } else {
+            turn = FieldType.X;
+        }
+        switchPlayersSigns();
     }
-
+    
     public static void switchPlayers() {
         if (turn == FieldType.X) {
             turn = FieldType.O;
@@ -120,5 +124,15 @@ public class GameController {
             turn = FieldType.X;
         }
     }
-
+    
+    public static void switchPlayersSigns() {
+        if (p1.getSign() == FieldType.X) {
+            p1.setSign(FieldType.O);
+            p2.setSign(FieldType.X);
+        } else {
+            p1.setSign(FieldType.X);
+            p2.setSign(FieldType.O);
+        }
+    }
+    
 }

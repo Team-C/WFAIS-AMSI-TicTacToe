@@ -35,6 +35,10 @@ public class Player {
     public FieldType getSign(){
         return this.sign;
     }
+    
+    public void setSign(FieldType sign){
+        this.sign = sign;
+    }
 
     public void setName(String name) {
         this.name = name;
