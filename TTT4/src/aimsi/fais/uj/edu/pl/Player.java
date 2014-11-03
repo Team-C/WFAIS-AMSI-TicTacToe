@@ -7,16 +7,33 @@ package aimsi.fais.uj.edu.pl;
 
 /**
  *
- * @author student
+ * @author Michał Szura
  */
 public class Player {
 
     private String name;
     private int score;
+    private FieldType sign;
     
     public Player(){
         this.name = "";
         this.score = 0;
+    }
+    
+    public Player(FieldType sign){
+        this.name = sign.getText();
+        this.score = 0;
+        this.sign = sign;
+    }
+    
+    public Player(String name, FieldType sign){
+        this.name = name;
+        this.score = 0;
+        this.sign = sign;
+    }
+    
+    public FieldType getSign(){
+        return this.sign;
     }
 
     public void setName(String name) {
