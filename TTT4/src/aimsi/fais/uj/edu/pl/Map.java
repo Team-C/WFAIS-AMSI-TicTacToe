@@ -53,8 +53,28 @@ public class Map {
         
         //VICTORY_X, VICTORY_O, DRAW,
         //TODO Check Victory
+        
+        if (victoryCheck(x, y, z)) {
+            if (FieldType.O == sign) {
+                return MoveResult.VICTORY_O;
+            } else {
+                return MoveResult.VICTORY_X;
+            }
+        }
+        
+        if (drawCheck()) {
+            return MoveResult.DRAW;
+        }
 
         return MoveResult.SUCCESS;
+    }
+
+    private boolean victoryCheck(int x, int y, int z) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private boolean drawCheck() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
