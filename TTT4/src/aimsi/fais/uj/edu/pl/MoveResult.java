@@ -7,7 +7,7 @@ package aimsi.fais.uj.edu.pl;
 
 /**
  *
- * @author student
+ * @author Bartosz Bereza
  */
 public enum MoveResult {
 

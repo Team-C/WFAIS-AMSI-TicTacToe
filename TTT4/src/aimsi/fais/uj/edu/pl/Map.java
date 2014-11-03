@@ -7,7 +7,7 @@ package aimsi.fais.uj.edu.pl;
 
 /**
  *
- * @author Wit
+ * @author Konrad Welc
  */
 public class Map {
 
@@ -103,29 +103,29 @@ public class Map {
         
         //slant check - topright
         for(int i=0; i<4; i++){
-            if(fields[4-i][i][z] == sign) c1++;
-            if(fields[4-i][y][i] == sign) c2++;
-            if(fields[4-i][i][i] == sign) c4++;
+            if(fields[3-i][i][z] == sign) c1++;
+            if(fields[3-i][y][i] == sign) c2++;
+            if(fields[3-i][i][i] == sign) c4++;
         }
         
         if( c1==4 || c2==4 || c4==4 )return true;
         else{ c1=0; c2=0; c4=0; }
         
-        //slant check - bottomright
+        //slant check - bottomleft
         for(int i=0; i<4; i++){
-            if(fields[i][4-i][z] == sign) c1++;
-            if(fields[x][4-i][i] == sign) c3++;
-            if(fields[i][4-i][i] == sign) c4++;
+            if(fields[i][3-i][z] == sign) c1++;
+            if(fields[x][3-i][i] == sign) c3++;
+            if(fields[i][3-i][i] == sign) c4++;
         }
         
         if( c1==4 || c3==4 || c4==4 )return true;
         else{ c1=0; c3=0; c4=0; }
         
-        //slant check - bottomleft
+        //slant check - bottomright
         for(int i=0; i<4; i++){
-            if(fields[4-i][y][i] == sign) c2++;
-            if(fields[x][4-i][i] == sign) c3++;
-            if(fields[4-i][4-i][i] == sign) c4++;
+            if(fields[3-i][y][i] == sign) c2++;
+            if(fields[x][3-i][i] == sign) c3++;
+            if(fields[3-i][3-i][i] == sign) c4++;
         }
         
         if( c2==4 || c3==4 || c4==4 )return true;
